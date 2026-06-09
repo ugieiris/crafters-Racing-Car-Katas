@@ -5,10 +5,11 @@ import java.util.Random;
 // The reading of the pressure value from the sensor is simulated in this implementation.
 // Because the focus of the exercise is on the other class.
 
-public class Sensor {
+public class Sensor implements SensorPressurePsi {
     public static final double OFFSET = 16;
 
-    public double popNextPressurePsiValue() {
+    @Override
+    public double readValue() {
         double pressureTelemetryValue;
         pressureTelemetryValue = samplePressure( );
 
