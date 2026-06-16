@@ -1,8 +1,8 @@
 package tddmicroexercises.textconvertor;
 
-class StringEscapeUtils {
+class StringEscapeUtils implements StringEscape {
 
-    public static String escapeHtml(String input) {
+    public String escapeHtml(String input) {
         String output = input;
         output = output.replace("&", "&amp;");
         output = output.replace("<", "&lt;");

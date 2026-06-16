@@ -6,22 +6,22 @@ import java.io.IOException;
 
 public class HtmlTextConverter
 {
-    private String fullFilenameWithPath;
+    private BufferedReader reader;
+    private StringEscape stringEscape;
 
-    public HtmlTextConverter(String fullFilenameWithPath)
+    public HtmlTextConverter(BufferedReader reader, StringEscape stringEscape)
     {
-        this.fullFilenameWithPath = fullFilenameWithPath;
+        this.reader = reader;
+        this.stringEscape = stringEscape;
     }
 
     public String convertToHtml() throws IOException{
-    
-	    BufferedReader reader = new BufferedReader(new FileReader(fullFilenameWithPath));
-	    
-	    String line = reader.readLine();
+        //BufferedReader reader = new BufferedReader(new FileReader(fullFilenameWithPath));
+        String line = reader.readLine();
 	    String html = "";
 	    while (line != null)
 	    {
-	    	html += StringEscapeUtils.escapeHtml(line);
+	    	html += stringEscape.escapeHtml(line);
 	        html += "<br />";
 	        line = reader.readLine();
 	    }
@@ -29,7 +29,4 @@ public class HtmlTextConverter
 
     }
 
-	public String getFilename() {
-		return this.fullFilenameWithPath;
-	}
 }

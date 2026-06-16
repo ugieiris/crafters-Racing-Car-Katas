@@ -40,7 +40,7 @@ public class HtmlPagesConverter {
             if (line.contains("PAGE_BREAK")) {
                 break;
             }
-            htmlPage.append(StringEscapeUtils.escapeHtml(line));
+            //htmlPage.append(StringEscapeUtils.escapeHtml(line));
             htmlPage.append("<br />");
             
             line = reader.readLine();
